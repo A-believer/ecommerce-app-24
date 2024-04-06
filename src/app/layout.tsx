@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import NextAuthProvider from "@/providers/next-auth-provider";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,14 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head />
-			<body className={inter.className}>
+			<body className={`${inter.className} container relative mt-20`}>
 				<NextAuthProvider>
 					<ThemeProvider
 						attribute='class'
 						defaultTheme='system'
 						enableSystem
 						disableTransitionOnChange>
+						<Navbar />
 						{children}
 					</ThemeProvider>
 				</NextAuthProvider>
